@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "生活圈",
+  "usingComponents": {
+    "van-search": "/components/@vant/weapp/dist/search/index"
+  }
+}

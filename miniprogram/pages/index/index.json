@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的日记",
+  "usingComponents": {
+    "van-steps": "/components/@vant/weapp/dist/steps/index",
+    "van-cell-group": "/components/@vant/weapp/dist/cell-group/index",
+    "van-cell": "/components/@vant/weapp/dist/cell/index",
+    "van-panel": "/components/@vant/weapp/dist/panel/index"
+  }
+}

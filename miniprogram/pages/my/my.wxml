@@ -1,0 +1,4 @@
+<!--discovery.wxml-->
+<view class="">
+  <text>我是我的页</text>
+</view>
