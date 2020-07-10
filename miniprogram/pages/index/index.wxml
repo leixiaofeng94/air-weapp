@@ -1,12 +1,127 @@
 <!--index.wxml-->
-<view class="">
-    <van-cell title="全部" value="编辑" />
-    <view wx:for="{{diaryLists}}" wx:key="index" class="panel-container panel-container-shadow">
-      <van-cell title="{{item.title}}" value="{{item.value}}">
-      </van-cell>
-      <view class="diary-content">
-        <image src="{{item.src}}" class="diary-img"></image>
-        <text class="diary-text">{{item.text}}</text>
+<view class="container">
+  <view class="top-content">
+    <view>
+    <view class="top-view">
+      <view class="locate-view" bindtap="bindPickerChange">
+        <text>{{currentCity}}</text>
+        <image class="locate-img" src="/assets/icons/drop-down.png"></image>
+      </view>
+      <view class="updatetime-view">2020-7-10 12:00更新</view>
+    </view>
+     <view class="main-num">
+      <view class="num-aqi">54<text class="num-badge">良</text></view>
+      <view class="aqi-btn">AQI指数</view>
+      <view class="updatetime-view">首要污染物：PM2.5</view>
+     </view>
+    </view>
+    <van-popup show="{{ selectShow }}" position="left">
+      <view>
+        <text class="hotcity hotcity-common">热门城市</text>
+        <view class="weui-grids">
+          <block wx:for-items="{{hotcityList}}" wx:key="index">
+            <view class="weui-grid" data-cityCode="{{item.cityCode}}" data-city="{{item.city}}" bindtap="bindHotCity" >
+              <view class="weui-grid__label">{{item.city}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="selection" wx:for="{{cityList}}" wx:key="initial">
+        <view class="item_letter"  id="{{item.initial}}">{{item.initial}}</view>
+        <view class="item_city"  wx:for="{{item.cityInfo}}" wx:for-item="ct" wx:key="id" data-cityCode="{{ct.code}}" data-city="{{ct.city}}" bindtap="bindCity">
+          {{ct.city}}
+        </view>
+      </view>
+    </van-popup>
+  </view>
+  <view class="middle-content">
+    <view class="num-content">
+      <van-row gutter="10">
+        <van-col span="4">
+          <view>39</view>
+          <view>PM10</view>
+        </van-col>
+        <van-col span="4">
+          <view>18</view>
+          <view>PM2.5</view>
+        </van-col>
+        <van-col span="4">
+          <view>8</view>
+          <view>NO2</view>
+        </van-col>
+        <van-col span="4">
+          <view>8</view>
+          <view>SO2</view>
+        </van-col>
+        <van-col span="4">
+          <view>79</view>
+          <view>SO2</view>
+        </van-col>
+        <van-col span="4">
+          <view>0.5</view>
+          <view>CO</view>
+        </van-col>
+      </van-row>
+    </view>
+    <view class="chart-content">
+     <view class="chart-title">
+       <text>空气质量趋势</text>
+       <text>详情</text>
+     </view>
+     <view class="chart-view">
+       <ec-canvas canvas-id="air-bar" ec="{{ ec }}"></ec-canvas>
+     </view>
+    </view>
+    <view class="chart-content predict-content">
+      <view class="chart-title">
+        <text>未来6天空气质量预报</text>
+      </view>
+      <view class="predict-view">
+        <van-row gutter="10">
+          <van-col span="4">
+            <view>明天 7/11</view>
+            <view>50~80</view>
+            <view class="pollution-level-grad">优~良</view>
+            <view>PM10</view>
+            <view>多云</view>
+          </van-col>
+          <van-col span="4">
+            <view>周日 7/12</view>
+            <view>50~80</view>
+            <view class="pollution-level-grad">优~良</view>
+            <view>PM10</view>
+            <view>多云</view>
+          </van-col>
+          <van-col span="4">
+            <view>周一 7/13</view>
+            <view>50~80</view>
+            <view class="pollution-level-grad">优~良</view>
+            <view>PM2.5</view>
+            <view>多云</view>
+          </van-col>
+          <van-col span="4">
+            <view>周二 7/14</view>
+            <view>50~80</view>
+            <view class="pollution-level-grad">优~良</view>
+            <view>NO2</view>
+            <view>多云</view>
+          </van-col>
+          <van-col span="4">
+            <view>周三 7/15</view>
+            <view>34~50</view>
+            <view class="pollution-level-grad">优</view>
+            <view>-</view>
+            <view>多云</view>
+          </van-col>
+          <van-col span="4">
+            <view>周四 7/16</view>
+            <view>34~50</view>
+            <view class="pollution-level-green">优</view>
+            <view>-</view>
+            <view>多云</view>
+          </van-col>
+        </van-row>
       </view>
     </view>
+  </view>
 </view>

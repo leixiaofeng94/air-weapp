@@ -1,4 +1,12 @@
 <!--discovery.wxml-->
-<view class="">
-  <text>我是我的页</text>
+<view class="container">
+    <van-cell title="全部" value="编辑" />
+    <view wx:for="{{diaryLists}}" wx:key="index" class="panel-container panel-container-shadow">
+      <van-cell title="{{item.title}}" value="{{item.value}}">
+      </van-cell>
+      <view class="diary-content">
+        <image src="{{item.src}}" class="diary-img"></image>
+        <text class="diary-text">{{item.text}}</text>
+      </view>
+    </view>
 </view>

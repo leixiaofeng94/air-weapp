@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "我的日记",
+  "navigationBarTitleText": "空气质量发布",
   "usingComponents": {
-    "van-steps": "/components/@vant/weapp/dist/steps/index",
-    "van-cell-group": "/components/@vant/weapp/dist/cell-group/index",
-    "van-cell": "/components/@vant/weapp/dist/cell/index",
-    "van-panel": "/components/@vant/weapp/dist/panel/index"
+    "van-button": "/components/@vant/weapp/dist/button/index",
+    "van-popup": "/components/@vant/weapp/dist/popup/index",
+    "van-row": "/components/@vant/weapp/dist/row/index",
+    "van-col": "/components/@vant/weapp/dist/col/index",
+    "ec-canvas": "/components/@ec-canvas/ec-canvas"
   }
 }
